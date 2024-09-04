@@ -1,0 +1,41 @@
+<html>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<head>
+	<meta http-equiv="refresh" content="60">
+	<title>Node Status</title>
+</head>
+<body>
+	<div class="header-wrapper">
+		<h2>Node Status Page</h2>
+	</div>
+
+<div class="table-wrapper">
+	<table class="fl-table">
+		<thead>
+			<tr>
+				<th>Node Id</th>
+				<th>CPU Temp</th>
+				<th>CPU Usage</th>
+				<th>Network In</th>
+				<th>Network Out</th>
+				<th>Mem. Usage</th>
+			</tr>
+		</thead>
+		{% for node in results %}
+			<tr>
+				<td>{{node.node_id}}</td>
+				<td>{{node.cpu_temp}} c</td>
+				<td>{{node.cpu_use}} %</td>
+				<td>{{node.net_in}} bytes</td>
+				<td>{{node.net_out}} bytes</td>
+				<td>{{node.mem_use}} %</td>		
+			</tr>
+		{% endfor %}
+	</table>
+
+
+
+</div>
+
+</body>
+</html>  
